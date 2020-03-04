@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz 3</title>
+  </head>
+  <body>
+    <script>
+      // const T = first => second => first;
+      // const F = first => second => second;
+      // const T = first => second => first;
+      // const F = first => second => second;
+      // const pair = a => b => f => f(a)(b);
+      // const fst = p => p(T);
+      // const snd = p => p(F);
+
+      // const pairEQ = a => b => fst(a) === fst(b) && snd(a) === snd(b);
+      // const pairMap = f => p => pair(f(fst(p)))(f(snd(p)));
+
+      // const oneTwo = pair(1)(2);
+      // const square = x => x * x;
+      // const result = pairMap(square)(oneTwo);
+
+      // document.writeln(pairEQ(result)(pair(1)(4)));
+
+      // const pair = a => b => f => f(a)(b);
+      // const fst = p => p(T);
+      // const snd = p => p(F);
+
+      // const oneTwo = pair(1)(2);
+
+      // document.writeln(fst(oneTwo) === 1);
+
+      // const pair = a => b => f => f(a)(b);
+      // const fst = p => p(T);
+      // const snd = p => p(F);
+
+      // const pairEQ = a => b => fst(a) === fst(b) && snd(a) === snd(b);
+      // const pairPlus = a => b => pair(fst(a) + fst(b))(snd(a) + snd(b));
+
+      // const oneTwo = pair(1)(2);
+      // const sum = pairPlus(oneTwo)(oneTwo);
+
+      // document.writeln(pairEQ(sum)(pair(2)(4)));
+
+      // const s1 = x => y => z => x;
+      // const s2 = x => y => z => y;
+      // const s3 = x => y => z => z;
+
+      // const triple = x => y => z => f => f(x)(y)(z);
+      // const a = t => t(s1);
+      // const b = t => t(s2);
+      // const c = t => t(s3);
+
+      // const person = triple;
+      // const firstname = a;
+      // const lastname = b;
+      // const age = c;
+
+      // const bran = person('Brendan')('Eich')(50);
+
+      // document.writeln(firstname(bran) === 'Brendan');
+
+      const Left = x => f => g => f(x);
+      const Right = x => f => g => g(x);
+      const either = e => f => g => e(f)(g);
+
+      const safeDiv = num => divisor =>
+        divisor === 0 ? Left('cannot divide by 0') : Right(num / divisor);
+
+      const result = safeDiv(1)(0);
+      either(result)(msg => document.writeln(msg));
+    </script>
+  </body>
+</html>
