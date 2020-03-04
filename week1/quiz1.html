@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz 1</title>
+  </head>
+  <body>
+    <script>
+      //   Aufgabe 1)
+
+      //   const foo = () => true;
+      //   document.writeln(foo(1));
+      // true
+
+      //   const foo = x => true;
+      //   document.writeln(foo());
+      // true
+
+      //   function foo() {
+      //     true;
+      //   }
+      //   document.writeln(foo());
+      // undefined
+
+      //   function foo() {
+      //     return true;
+      //   }
+      //   document.writeln(foo());
+      // true
+
+      //   function foo() {
+      //     return true;
+      //   }
+      //   document.writeln(foo);
+      // no, prints function itself
+
+      //   const foo = true;
+      //   document.writeln(foo());
+      // shows nothing
+
+      //   const foo = () => true;
+      //   document.writeln(foo());
+      // true
+
+      function one(x) {
+        return x;
+      }
+      function two(x, y) {
+        return x + y;
+      }
+      function three(x, y, z) {
+        return x + y + z;
+      }
+      const functions = [null, one, two, three];
+
+      document.writeln(functions[3](1, 1));
+      // NaN
+
+      document.writeln(functions[2](1, 1, 1));
+      // 2
+
+      document.writeln(functions[1](1));
+      // 1
+    </script>
+  </body>
+</html>

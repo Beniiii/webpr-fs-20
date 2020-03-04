@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz 2</title>
+  </head>
+  <body>
+    <script>
+      const id = y => y;
+      const fst = x => y => x;
+      const snd = fst(id);
+      const hello = x => y => y;
+      const x_ = Math.random();
+      const y_ = Math.random();
+
+      document.writeln(snd(1)(id) == id);
+      document.writeln(snd(x_)(y_) === y_);
+    </script>
+  </body>
+</html>
