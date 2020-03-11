@@ -65,17 +65,15 @@ ok.push(dierk(lastname) === 'König');
 //
 // // Pair equal
 //
-// // either
-//
-// const safeDiv = num => divisor =>
-//     divisor === 0
-//     ? Left("schlecht!")
-//     : Right(num / divisor);
-//
-// either( safeDiv(1)(0)  )
-//       (console.error)
-//       (console.log);
-//
+// either
+
+const safeDiv = num => divisor =>
+  divisor === 0 ? Left('schlecht!') : Right(num / divisor);
+
+either(safeDiv(1)(0))(errormsg => console.error(errormsg))(result =>
+  console.log(result)
+);
+
 //
 // const [Cash, CreditCard, Invoice, PayPal, pay] = Choice(4);
 // const cash = Cash ();

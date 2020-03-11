@@ -15,7 +15,7 @@ audioControl.connect(audioContext.destination);
 
 const audioContext = new AudioContext();
 const oscillator = audioContext.createOscillator();
-oscillator.type  = oscillator.SINE;
+oscillator.type = oscillator.SINE;
 oscillator.frequency.value = 440; // default
 
 const audioControl = audioContext.createGain();
@@ -25,16 +25,16 @@ oscillator.connect(audioControl);
 audioControl.connect(audioContext.destination);
 
 function beep(offset = 0) {
-    oscillator.frequency.value = 440 + offset;
-    audioControl.gain.value = 1;
-    setTimeout( () => audioControl.gain.value = 0, 500 )
+  oscillator.frequency.value = 440 + offset;
+  audioControl.gain.value = 1;
+  setTimeout(() => (audioControl.gain.value = 0), 500);
 }
 
 function start() {
-    oscillator.start(0);
-    const canvas  = document.getElementById("canvas");
-    const context = canvas.getContext("2d");
-    context.fillStyle = "black";
+  oscillator.start(0);
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+  context.fillStyle = 'black';
 
   setInterval(() => {
     if (Math.abs(ball.dx) < 0.1 && Math.abs(ball.dy) < 0.1) return;
@@ -44,26 +44,27 @@ function start() {
 }
 
 function nextBoard() {
-    old.x = ball.x;
-    old.y = ball.y;
-    if (ball.y >= 390 && ball.dy > 0) {  // ball.y < 0 cannot occur due to conservation of energy
-        if ( Math.abs(ball.dy) > 4) {
-            beep(Math.abs(ball.dy) * 20);
-        } else {
-            oscillator.stop(0);    // avoid surface noise
-            ball.dx *= 0.99;       // surface traction
-        }
-        ball.dy -= 4;
-        ball.dy *= -1;
-    }
-    if (ball.x <= 10 && ball.dx < 0 || ball.x >= 390 && ball.dx > 0) {
-        beep();
-        ball.dx *= -1;
-        ball.dx *= 0.8;
+  old.x = ball.x;
+  old.y = ball.y;
+  if (ball.y >= 390 && ball.dy > 0) {
+    // ball.y < 0 cannot occur due to conservation of energy
+    if (Math.abs(ball.dy) > 4) {
+      beep(Math.abs(ball.dy) * 20);
+    } else {
+      oscillator.stop(0); // avoid surface noise
+      ball.dx *= 0.99; // surface traction
     }
     ball.dy -= 4;
     ball.dy *= -1;
   }
+  if ((ball.x <= 10 && ball.dx < 0) || (ball.x >= 390 && ball.dx > 0)) {
+    beep();
+    ball.dx *= -1;
+    ball.dx *= 0.8;
+  }
+  ball.dy -= 4;
+  ball.dy *= -1;
+
   if ((ball.x <= 10 && ball.dx < 0) || (ball.x >= 390 && ball.dx > 0)) {
     beep();
     ball.dx *= -1;
