@@ -1,13 +1,18 @@
 const id = x => x;
 const fst = x => y => x;
 const snd = x => y => y;
+<<<<<<< HEAD
 const M = f => f(f);
+=======
+const M   = f => f (f);
+>>>>>>> upstream/master
 
 const konst = fst;
 
 const T = first => second => first;
 const F = first => second => second;
 
+<<<<<<< HEAD
 // const and = first => second => first(second(T)(F))(second(F)(F));
 const and = first => second => first(second)(first);
 
@@ -20,6 +25,14 @@ const or = M;
 const Pair = first => second => selector => selector(first)(second);
 const firstname = fst;
 const lastname = snd;
+=======
+const and = first => second => first ( second ) ( first );
+const or  = M ;
+
+const Pair = first => second => selector  => selector (first) (second);
+const firstname = fst;
+const lastname  = snd;
+>>>>>>> upstream/master
 
 // ----- special -----
 
