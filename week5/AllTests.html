@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Tests</title>
+</head>
+<body>
+
+    <script>
+
+        const testNames = ["function","lambda","snake"];
+
+        testNames.forEach( testName => {
+            document.writeln(`<script src="${testName}/${testName}.js"><` + '/script>');
+            document.writeln(`<script src="${testName}/${testName}Test.js"><` + '/script>');
+        });
+
+    </script>
+
+
+</body>
+</html>
