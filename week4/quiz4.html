@@ -6,19 +6,34 @@
   </head>
   <body>
     <script>
-      const Left = x => f => g => f(x);
-      const Right = x => f => g => g(x);
-      const either = e => f => g => e(f)(g);
-      const id = x => x;
+      // const Left = x => f => g => f(x);
+      // const Right = x => f => g => g(x);
+      // const either = e => f => g => e(f)(g);
+      // const id = x => x;
 
-      const eShow = x => either(x)(msg => msg)(value => 'Result is: ' + value);
+      // const eShow = x => either(x)(msg => msg)(value => 'Result is: ' + value);
 
-      const x_ = Math.random();
-      const safeDiv = num => divisor =>
-        divisor === 0 ? Left('Cannot divide by 0') : Right(num / divisor);
+      // const x_ = Math.random();
+      // const safeDiv = num => divisor =>
+      //   divisor === 0 ? Left('Cannot divide by 0') : Right(num / divisor);
 
-      console.log(eShow(safeDiv(1)(0)) === 'Cannot divide by 0');
-      console.log(eShow(safeDiv(x_)(1)) === 'Result is: ' + x_);
+      // console.log(eShow(safeDiv(1)(0)) === 'Cannot divide by 0');
+      // console.log(eShow(safeDiv(x_)(1)) === 'Result is: ' + x_);
+      var bonusFormula = 'employee.revenue * 0.2';
+
+      // const bonusCalculation = employee => eval(bonusFormula);
+
+      // Function('x','y','return x+y');
+
+      function bonusCalculation(employee) {
+        const bonus = Function('employee', 'return ' + bonusFormula);
+        employee.bonus = bonus(employee);
+      }
+
+      const e = { revenue: 10000, bonus: null };
+      bonusCalculation(e);
+
+      console.log(e.bonus === e.revenue * 0.2);
     </script>
   </body>
 </html>
