@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz 6</title>
+  </head>
+  <body>
+    <script>
+      function OpenPerson(first, last) {
+        return {
+          firstname: first,
+          lastname: last,
+          // must use "this" or type error
+          getName: function() {
+            return this.firstname + ' ' + this.lastname;
+          }
+        };
+      }
+      eq : function (ys) {
+        if (this.length != ys.length) return false;
+        for (i = 0; i < ys.length; i++) {
+          if ((this[i] = !ys[i])) return false;
+        }
+        return true;
+      }
+
+      document.writeln(me.getName() === '***');
+    </script>
+  </body>
+</html>
